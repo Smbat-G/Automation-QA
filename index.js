@@ -647,7 +647,7 @@
 
 
 
-// Home Woer lesson 10
+// Home Work lesson 10
 //1
 
 // class Tenant{
@@ -791,3 +791,105 @@
 // building.describe()
 // building.addFlat(5)
 // building.addFlat(8)
+
+
+// Lesson 11
+//1
+
+class CommunicationDevice {
+    constructor(model, type, communicationType) {
+        this.model = model;
+        this.type = type;
+        this.communicationType = communicationType;
+    }
+
+    static manufacturer = 'Generic Manufacturer';
+
+    static getManufacturerInfo() {
+        console.log(`Manufacturer: ${CommunicationDevice.manufacturer}`);
+    }
+
+    getModel() {
+        console.log(`${this.model}`);
+    }
+
+    getType() {
+        console.log(`${this.type}`);
+    }
+
+    getCommunicationType() {
+        console.log(`${this.communicationType}`);
+    }
+
+    getDescription() {
+        console.log(`Model: ${this.model}, Type: ${this.type}, Communication Type: ${this.communicationType}`);
+    }
+}
+
+// let communicationDevice1 = new CommunicationDevice('Iphone', '15pro', 'mobile');
+// communicationDevice1.getModel();
+// communicationDevice1.getType();
+// communicationDevice1.getCommunicationType();
+// communicationDevice1.getDescription();
+// CommunicationDevice.getManufacturerInfo();
+
+
+//2
+
+class MotorolaDevice extends CommunicationDevice {
+    static manufacturer = 'Motorola';
+
+    constructor(model, type, communicationType) {
+        super(model, type, communicationType);
+    }
+}
+
+// const motorolaDevice = new MotorolaDevice('Moto G', 'smartphone', 'wireless');
+// console.log(MotorolaDevice.getManufacturerInfo());
+// console.log(motorolaDevice.getModel()); 
+// console.log(motorolaDevice.getType()); 
+// console.log(motorolaDevice.getCommunicationType()); 
+// console.log(motorolaDevice.getDescription()); 
+
+
+// 3
+
+class MotorolaV3 extends MotorolaDevice{
+    constructor(model, type, communicationType, features){
+        super(model, type, communicationType)
+        this.features = features
+    }
+    
+    getFeatures() {
+        return `Features: ${this.features.join(', ')}`;
+    }
+
+    getDescription() {
+        return `${super.getDescription()}, ${this.getFeatures()}`;
+    }
+   
+}
+
+// let motorolaV3 = new MotorolaV3('Motorola V3', 'flip phone', 'wireless', ['call', 'text', 'camera', 'MP3 player'])
+// console.log(motorolaV3.getFeatures()); 
+// console.log(motorolaV3.getDescription());
+
+
+// 4
+
+class  MotorolaR7  extends MotorolaDevice{
+    constructor(model, type, communicationType, range){
+        super(model, type, communicationType)
+        this.range = range
+    }
+    getRange(){
+        return `Distance: ${this.range = '50km'}`
+    }
+    getDescription(){
+        return `${super.getDescription}, ${this.getRange}`
+    }
+}
+
+let motorolaR7 = new MotorolaR7('MotoR7', 'racia', 'wired')
+console.log(motorolaR7.getRange());
+console.log(motorolaR7.getDescription());
